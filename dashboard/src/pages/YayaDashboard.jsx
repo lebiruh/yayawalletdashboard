@@ -47,6 +47,7 @@ const TransactionsTable = ({userName, page, setPage}) => {
       {/* <Table transactions={data} userName={userName}/> */}
       <Table transactions={data} userName={userName}/>
       <Box sx={{textAlign: 'center', mt: 2}}>
+        <p>{page} of {data.lastPage}</p>
         {page === 1 ? (<Button disabled ><KeyboardDoubleArrowLeftIcon /></Button>) : (<Button onClick={handlePreviousClick}><KeyboardDoubleArrowLeftIcon /></Button>)}
         {page === data.lastPage ? (<Button disabled ><KeyboardDoubleArrowRightIcon /></Button>) : (<Button onClick={handleNextClick}><KeyboardDoubleArrowRightIcon /></Button>)}        
       </Box>
