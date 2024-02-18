@@ -19,6 +19,7 @@ const Search = ({userName}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     searchTransactions( setSearchData, inputData);
+    setInputData({query: ''});
   }
 
  
