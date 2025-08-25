@@ -24,6 +24,8 @@ export const searchTransactions = async (setSearchData, inputData) => {
     };
       // Make a GET request to the API and get the response
     const response = await axios.post(url, inputData, { headers });
+
+    console.log("search data is: ", response);
     setSearchData(response.data);
   };
 

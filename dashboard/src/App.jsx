@@ -11,7 +11,7 @@ import { useState } from 'react';
 function App() {
   const [transactionPage, setTransactionPage] = useState(1);
 
-  const userName = 'Anteneh Gebeyaw';
+  const userName = 'Surafel Araya';
 
   const { status, data, error } = useQuery({ queryKey: ['transactions', transactionPage], queryFn: () => fetchTransactions(transactionPage), enabled: !!transactionPage, placeholderData: keepPreviousData});
 
@@ -29,7 +29,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<TransactionsTable userName={userName} transactions={data} page={transactionPage} setPage={setTransactionPage}/>}/>
-        <Route path='/search' element={<Search userName={userName} />}/>
+        <Route path='/search' element={<Search userName={userName} page={transactionPage} setPage={setTransactionPage} />}/>
       </Routes>
       
       

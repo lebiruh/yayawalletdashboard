@@ -40,7 +40,7 @@ const Table = ({transactions, userName}) => {
           </tr>
         </thead>
         <tbody>
-          {transactions.data.map((transaction) => renderRow(transaction))}
+          {transactions?.data?.map((transaction) => renderRow(transaction))}
         </tbody>
       </table>
     </div>

@@ -7,7 +7,7 @@ export default defineConfig({
     host: true,
   //   port: 80,
     proxy: {
-      '/api': 'https://yayawallet.com'
+      '/api': 'https://sandbox.yayawallet.com'
     }
   },
   plugins: [react()],

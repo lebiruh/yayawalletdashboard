@@ -9,6 +9,8 @@ const API_SECRET = import.meta.env.VITE_API_SECRET;
 // Define the base URL for the API
 const BASE_URL = "/api/en/transaction";
 
+// const BASE_URL = "https://sandbox.yayawallet.com/api/en/transaction";
+
 
 export const fetchTransactions = async (page) => {
     
