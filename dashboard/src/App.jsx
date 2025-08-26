@@ -28,7 +28,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<TransactionsTable userName={userName} transactions={data} page={transactionPage} setPage={setTransactionPage}/>}/>
+        <Route path='/' element={<TransactionsTable transactions={data} page={transactionPage} setPage={setTransactionPage}/>}/>
         <Route path='/search' element={<Search userName={userName} page={transactionPage} setPage={setTransactionPage} />}/>
       </Routes>
       

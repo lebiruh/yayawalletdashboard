@@ -2,7 +2,7 @@
 import {  keepPreviousData, useQuery } from '@tanstack/react-query';
 import { fetchTransactions } from '../api/fetchTransactions';
 import { Box, Typography, Button } from '@mui/material';
-import Table from '../components/table/Table';
+import AllTransationsTable from '../components/table/AllTransactionsTable';
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
@@ -11,7 +11,7 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 
 
 // eslint-disable-next-line react/prop-types
-const TransactionsTable = ({userName, page, setPage}) => {
+const TransactionsTable = ({ page, setPage}) => {
 
 
   const { status, data, error } = useQuery({ queryKey: ['transactions', page], queryFn: () => fetchTransactions(page), enabled: !!page, placeholderData: keepPreviousData}, )
@@ -39,13 +39,13 @@ const TransactionsTable = ({userName, page, setPage}) => {
     <>
       <Box>
         <Typography variant='h4' component='h4' sx={{textAlign: 'left', mt: 3, mb: 3, mr: 20, display: 'inline-block'}} >
-          Transactions
+         All Transactions
         </Typography>
-        <Link to="/search"><button className='Button'>Search</button></Link>
+        <Link to="/search" className='Button'><button>Search</button></Link>
       </Box>
     
       {/* <Table transactions={data} userName={userName}/> */}
-      <Table transactions={data} userName={userName}/>
+      <AllTransationsTable transactions={data} />
       <Box sx={{textAlign: 'center', mt: 2}}>
         <p>{page} of {data.lastPage}</p>
         {page === 1 ? (<Button disabled ><KeyboardDoubleArrowLeftIcon /></Button>) : (<Button onClick={handlePreviousClick}><KeyboardDoubleArrowLeftIcon /></Button>)}

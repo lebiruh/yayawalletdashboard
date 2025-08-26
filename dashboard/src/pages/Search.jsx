@@ -46,15 +46,18 @@ const Search = ({userName, page, setPage}) => {
           onChange={handleChange}
           sx={{ width: '50%', mr:5 }}
         />
-        <button className='Button' onClick={handleSubmit}>Search</button>
+        <button onClick={handleSubmit}>Search</button>
       </Box>
       <Box>
-        {searchData.length !== 0 ? <Table transactions={searchData} userName={userName}/> : null}
-        <Box sx={{textAlign: 'center', mt: 2}}>
-          <p>{page} of {searchData?.lastPage}</p>
-          {page === 1 ? (<Button disabled ><KeyboardDoubleArrowLeftIcon /></Button>) : (<Button onClick={handlePreviousClick}><KeyboardDoubleArrowLeftIcon /></Button>)}
-          {page === searchData?.lastPage ? (<Button disabled ><KeyboardDoubleArrowRightIcon /></Button>) : (<Button onClick={handleNextClick}><KeyboardDoubleArrowRightIcon /></Button>)}        
-        </Box>
+        {searchData.length !== 0 ? (<>
+          <Table transactions={searchData} userName={userName}/> 
+          <Box sx={{textAlign: 'center', mt: 2}}>
+            {/* <p>{page} of {searchData?.lastPage}</p> */}
+            {page === 1 ? (<Button disabled ><KeyboardDoubleArrowLeftIcon /></Button>) : (<Button onClick={handlePreviousClick}><KeyboardDoubleArrowLeftIcon /></Button>)}
+            {page === searchData?.lastPage ? (<Button disabled ><KeyboardDoubleArrowRightIcon /></Button>) : (<Button onClick={handleNextClick}><KeyboardDoubleArrowRightIcon /></Button>)}        
+          </Box>
+        </>) : null}
+        
       </Box>
     </div>
   )

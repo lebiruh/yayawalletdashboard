@@ -27,16 +27,26 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   cursor: pointer;
   transition: border-color 0.25s;
+  /* background-color: rgb(16, 16, 80); */
+  color: white;
 }
 button:hover {
   border-color: #646cff;
+  background-color: rgb(133, 132, 132);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+/* a {
+  background-color: #1a1a1a;
+} */
+
+Button {
+  background-color: #213547;
 }
 
 .previous {
@@ -48,7 +58,7 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  button {
+  /* button {
     background-color: #f9f9f9;
-  }
+  } */
 }

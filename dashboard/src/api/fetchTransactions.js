@@ -1,38 +1,20 @@
-import CryptoJS from 'crypto-js';
-import axios from "axios";
 
-// Define the API credentials
-const API_KEY = import.meta.env.VITE_API_KEY;
-const API_SECRET = import.meta.env.VITE_API_SECRET;
+import axios from "axios";
+import {requestAllTransactionHeaders} from '../utils/requestHeaders';
 
 
 // Define the base URL for the API
-const BASE_URL = "/api/en/transaction";
-
-// const BASE_URL = "https://sandbox.yayawallet.com/api/en/transaction";
-
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const fetchTransactions = async (page) => {
     
     // Construct the URL for the find-by-user endpoint
     let url = `${BASE_URL}/find-by-user?p=${page}`;
  
-    const timestamp = Date.now().toString(); // Get current timestamp in milliseconds
-    const signature = signRequest(timestamp,'GET',`/api/en/transaction/find-by-user`,''); // Sign the request
-    
     // Add the API credentials as headers
-    const headers = {
-      'YAYA-API-KEY': API_KEY,
-      'YAYA-API-TIMESTAMP': timestamp,
-      'YAYA-API-SIGN': signature,
-    };
-      // Make a GET request to the API and get the response
+    const headers = requestAllTransactionHeaders();
+
+    // Make a GET request to the API and get the response
     const response = await axios.get(url, { headers });
     return response.data;
   };
-
-  const signRequest = (timestamp, method,endpoint,body) => {
-        const message = timestamp + method.toUpperCase() + endpoint + body;
-        const signature = CryptoJS.HmacSHA256(message, API_SECRET).toString(CryptoJS.enc.Base64);
-        return signature;
-    };
