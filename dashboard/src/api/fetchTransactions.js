@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import {requestAllTransactionHeaders} from '../utils/requestHeaders';
+import {requestAllTransactionHeaders} from './requestHeaders';
 
 
 // Define the base URL for the API

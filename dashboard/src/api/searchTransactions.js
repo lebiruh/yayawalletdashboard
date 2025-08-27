@@ -1,4 +1,4 @@
-import {requestSearchTransactionHeaders} from '../utils/requestHeaders';
+import {requestSearchTransactionHeaders} from './requestHeaders';
 import axios from "axios";
 
 
